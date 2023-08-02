@@ -1,0 +1,23 @@
+# log4jdbc, Mybatis Console Log
+logging:
+  level:
+    com:
+      zaxxer:
+        hikari: INFO
+    javax:
+      sql:
+        DataSource: OFF
+    jdbc:
+      audit: OFF
+      resultset: OFF
+      resultsettable: OFF  #SQL 結果データ Tableをログに残す。
+      sqlonly: OFF     #SQL万ログに残す。
+      sqltiming: TRACE    #SQLと所要時間を表記する。
+      connection : OFF  # コネクション確認可能
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
