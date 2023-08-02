@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.word_ServerApi.Word.Mapper.WordMapper">
+
+    <select id="findAll" parameterType="String" resultType="com.example.word_ServerApi.Word.Model.WordResponse">
+        SELECT DISTINCT WORD_ID,WORD_KANJI,WORD_HURIGANA,WORD_HURIGANA_TEST1,WORD_HURIGANA_TEST2 FROM WORD_TABLE
+        <choose>
+            <when test= 'wordLevel == "N5"'>
+                WHERE WORD_LEVEL_N5 = 1 ORDER BY RAND() LIMIT 10
+            </when>
+            <when test= 'wordLevel == "N4"'>
+                WHERE WORD_LEVEL_N4 = 1 ORDER BY RAND() LIMIT 10
+            </when>
+            <when test= 'wordLevel == "N3"'>
+                WHERE WORD_LEVEL_N3 = 1 ORDER BY RAND() LIMIT 10
+            </when>
+            <when test= 'wordLevel == "N2"'>
+                WHERE WORD_LEVEL_N2 = 1 ORDER BY RAND() LIMIT 10
+            </when>
+            <when test= 'wordLevel == "N1"'>
+                WHERE WORD_LEVEL_N1 = 1 ORDER BY RAND() LIMIT 10
+            </when>
+        </choose>
+    </select>
+
+</mapper>
